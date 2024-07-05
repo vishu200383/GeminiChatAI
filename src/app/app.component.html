@@ -1,7 +1,7 @@
-<div class="Container">
+<!-- <div class="Container">
 
   <div class="Tittle">
-
+   <img src="gemini-icon.png"  alt="">
     <h1>ChatBot</h1>
 
   </div>
@@ -9,8 +9,9 @@
   <div class="MessageField">
     <ng-container *ngFor="let item of chatHistory">
       <div [ngClass]="{'blue':item.from === 'user','green':item.from === 'bot'}">
-        <i class="fa" [ngClass]="{'fa-user-circle': item.from === 'user','fa-graduation-cap':item.from === 'bot'}"></i>
-        <span [innerHTML]="formatText(item.message)"></span>
+       
+        <i class="bi" [ngClass]="{'bi-person-circle': item.from === 'user','bi-robot':item.from === 'bot'}"></i>
+        <span ></span>
       </div>
     </ng-container>
   </div>
@@ -18,7 +19,17 @@
   <div class="InputField">
     <input type="text" class="Input" id="message-input" placeholder="Type Your Message..." (keyup.enter)="sendData()"
       [(ngModel)]="prompt">
-    <button id="send-button" (click)="sendData()">Send</button>
+    <button class="btn " (click)="sendData()"><i class="bi bi-send-fill"></i></button>
+
   </div>
 
+</div> -->
+
+<div class="container">
+  <div class="right">
+    <app-rightside></app-rightside>
+  </div>
+  <div class="left">
+    <app-leftside></app-leftside>
+  </div>
 </div>

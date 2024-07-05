@@ -6,7 +6,7 @@ import { GeminiApikey } from "../environments/environment.development";
 @Injectable({
   providedIn: 'root'
 })
-export class GenimiService {
+export class GeniminewService {
   private generativeAI: GoogleGenerativeAI;
 
   private messageHistory: BehaviorSubject<any> = new BehaviorSubject(null);

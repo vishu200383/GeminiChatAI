@@ -1,20 +1,16 @@
 import { Component, inject } from '@angular/core';
+import { GenimiService } from '../../Services/gemini.service';
 import { RouterOutlet } from '@angular/router';
-import { GenimiService } from '../Services/gemini.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RightsideComponent } from "./rightside/rightside.component";
-import { LeftsideComponent } from "./leftside/leftside.component";
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    imports: [RouterOutlet, FormsModule, CommonModule, RightsideComponent, LeftsideComponent]
+  selector: 'app-rightside',
+  standalone: true,
+  imports: [RouterOutlet, FormsModule, CommonModule],
+  templateUrl: './rightside.component.html',
+  styleUrl: './rightside.component.scss'
 })
-export class AppComponent {
-  title = 'GeminiChatAI';
-  
+export class RightsideComponent {
   prompt: string = '';
 
   geminiService: GenimiService = inject(GenimiService);
