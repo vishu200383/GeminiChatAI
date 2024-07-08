@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { GeminiApikey } from "../environments/environment.development";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class GenimiService {
 
   private messageHistory: BehaviorSubject<any> = new BehaviorSubject(null);
   constructor() {
-    this.generativeAI = new GoogleGenerativeAI('AIzaSyBYzCUXVgnM3_XAYkVbpowPw5UW_7pZtT0');
+    this.generativeAI = new GoogleGenerativeAI(GeminiApikey);
   }
 
   async generateText(prompt: string) {
