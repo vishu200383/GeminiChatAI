@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="title">
+      <img src="gemini-icon.png" alt="Gemini Icon">
+      <h1>Jira Task</h1>
+    </div>
+  
+    <div class="message-field" #messageContainer>
+      <ng-container *ngFor="let item of chatHistory">
+        <div [ngClass]="{'blue': item.from === 'user', 'green': item.from === 'bot'}">
+          <i class="bi" [ngClass]="{'bi-person-circle': item.from === 'user', 'bi-robot': item.from === 'bot'}"></i>
+          <span class="responses" [innerHTML]="formatText(item.message)"></span>
+        </div>
+      </ng-container>
+    </div>
+  
+    <div class="input-field">
+      <input type="text" class="input" id="message-input" placeholder="Type Your Message..." (keyup.enter)="sendData()" [(ngModel)]="prompt">
+      <i class="bi bi-send-fill" (click)="sendData()"></i>
+    </div>
+  </div>
+  
