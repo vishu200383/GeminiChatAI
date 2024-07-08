@@ -1,3 +1,3 @@
 export const environment = {};
 
-export const GeminiApikey = 'AIzaSyBYzCUXVgnM3_XAYkVbpowPw5UW_7pZtT0';
+export const GeminiApikey = 'AIzaSyCc9pv2UU86HPBU5hilnPbThvWmhC5TOAg';
