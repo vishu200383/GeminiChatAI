@@ -5,7 +5,8 @@
   </div>
   <div class="chat-history">
     <div *ngFor="let message of chatHistory" [ngClass]="{'user-message': message.from === 'user', 'bot-message': message.from === 'bot'}">
-      {{ message.message }}
+      <span *ngIf="message.from === 'user'">{{ message.message }}</span>
+      <span *ngIf="message.from === 'bot'" [innerHTML]="formatText(message.message)"></span>
     </div>
   </div>
   <div class="chat-input">

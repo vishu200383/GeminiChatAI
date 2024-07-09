@@ -41,6 +41,22 @@ export class RightsideComponent {
   }
 
   formatText(text: string): string {
-    return text.replaceAll('*', '');
+    // Replace asterisks with spaces
+    let result = text.replaceAll('*', ' ');
+  
+    const titleTagRegex = /Title Tag:\s*(.*?)(?=\n|$)/;
+    const metaDescriptionRegex = /Meta Description:\s*(.*?)(?=\n|$)/;
+    const keyWordsRegex = /Key Words:\s*(.*?)(?=\n|$)/;
+  
+    const titleTagMatch = result.match(titleTagRegex);
+    const metaDescriptionMatch = result.match(metaDescriptionRegex);
+    const keyWordsMatch = result.match(keyWordsRegex);
+  
+    const titleTag = titleTagMatch ? `<strong>Title Tag:</strong> ${titleTagMatch[1]}` : '';
+    const metaDescription = metaDescriptionMatch ? `<strong>Meta Description:</strong> ${metaDescriptionMatch[1]}` : '';
+    const keyWords = keyWordsMatch ? `<strong>Key Words:</strong> ${keyWordsMatch[1]}` : '';
+  
+    return `${titleTag}<br>${metaDescription}<br>${keyWords}`;
   }
+  
 }

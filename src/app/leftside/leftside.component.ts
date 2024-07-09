@@ -41,6 +41,24 @@ export class LeftsideComponent {
   }
 
   formatText(text: string): string {
-    return text.replaceAll('*', '');
+    // Handle special formatting for the response
+    let result = text.replaceAll('*', ' ');
+    const SummaryRegex = /Summary\s*(.*?)(?=\n|$)/;
+    const DescriptionRegex = /Description\s*(.*?)(?=\n|$)/;
+    const AcceptanceCriteriaRegex = /Acceptance Criteria\s*(.*?)(?=\n|$)/;
+
+    const SummaryMatch = result.match(SummaryRegex);
+    const DescriptionMatch = result.match(DescriptionRegex);
+    const AcceptanceCriteriaMatch = result.match(AcceptanceCriteriaRegex);
+
+    const Summary = SummaryMatch ? `<strong>Summary:</strong> ${SummaryMatch[1]}` : '';
+    const Description = DescriptionMatch ? `<strong>Description:</strong> ${DescriptionMatch[1]}` : '';
+    const AcceptanceCriteria = AcceptanceCriteriaMatch ? `<strong>Acceptance Criteria:</strong> ${AcceptanceCriteriaMatch[1]}` : '';
+
+    return `
+      <div>${Summary}</div>
+      <div>${Description}</div>
+      <div>${AcceptanceCriteria}</div>
+    ` ;
   }
 }
