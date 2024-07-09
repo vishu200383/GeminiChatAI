@@ -3,13 +3,14 @@ import { GeniminewService } from '../../Services/Gemininew.service';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SkeletonComponent } from "../skeleton/skeleton.component";
 
 @Component({
-  selector: 'app-rightside',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule],
-  templateUrl: './rightside.component.html',
-  styleUrls: ['./rightside.component.scss']
+    selector: 'app-rightside',
+    standalone: true,
+    templateUrl: './rightside.component.html',
+    styleUrls: ['./rightside.component.scss'],
+    imports: [RouterOutlet, FormsModule, CommonModule, SkeletonComponent]
 })
 export class RightsideComponent {
   prompt: string = '';

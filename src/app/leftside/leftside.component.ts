@@ -3,13 +3,14 @@ import { GeminiService } from '../../Services/gemini.service';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SkeletonComponent } from "../skeleton/skeleton.component";
 
 @Component({
-  selector: 'app-leftside',
-  standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule],
-  templateUrl: './leftside.component.html',
-  styleUrls: ['./leftside.component.scss']
+    selector: 'app-leftside',
+    standalone: true,
+    templateUrl: './leftside.component.html',
+    styleUrls: ['./leftside.component.scss'],
+    imports: [RouterOutlet, FormsModule, CommonModule, SkeletonComponent]
 })
 export class LeftsideComponent {
   prompt: string = '';

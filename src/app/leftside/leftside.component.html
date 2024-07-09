@@ -9,10 +9,13 @@
       <span *ngIf="message.from === 'user'">{{ message.message }}</span>
       <span *ngIf="message.from === 'bot'" [innerHTML]="formatText(message.message)"></span>
     </div>
+    <ng-container *ngIf="loading">
+      <app-skeleton></app-skeleton>
+   </ng-container>
   </div>
   <div class="chat-input">
     <textarea [(ngModel)]="prompt" placeholder="Type your message..." (keydown.enter)="sendData()"></textarea>
     <button (click)="sendData()" [disabled]="loading">Send</button>
   </div>
-  <div *ngIf="loading" class="loading-spinner">Loading...</div>
+
 </div>
